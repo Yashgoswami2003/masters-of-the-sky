@@ -285,26 +285,48 @@
             color: var(--text-primary);
         }
 
-        /* Glass Cards */
-        .glass-card {
+        /* About Section Grid (Text Left, Image Right) */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-content {
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 40px;
             backdrop-filter: blur(12px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transition: border-color 0.3s ease;
         }
 
-        .glass-card:hover {
-            border-color: var(--border-glow);
+        .about-img-box {
+            position: relative;
+            text-align: center;
         }
 
-        /* Gallery */
+        .about-img-box img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--border-glow);
+            transition: transform 0.4s ease;
+        }
+
+        .about-img-box img:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Gallery (2 items) */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .gallery-card {
@@ -324,26 +346,26 @@
 
         .gallery-card img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
             display: block;
         }
 
         .gallery-overlay {
-            padding: 20px;
+            padding: 24px;
             background: linear-gradient(to top, rgba(7, 10, 18, 0.95), transparent);
         }
 
         .gallery-overlay h3 {
             font-family: var(--font-heading);
             color: var(--accent-gold);
-            font-size: 1.1rem;
-            margin-bottom: 4px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
         }
 
         .gallery-overlay p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* Core Themes Grid */
@@ -544,7 +566,7 @@
         }
 
         @media (max-width: 900px) {
-            .hero-grid, .gallery-grid, .themes-grid, .media-grid {
+            .hero-grid, .about-grid, .gallery-grid, .themes-grid, .media-grid {
                 grid-template-columns: 1fr;
             }
             .hero-title {
@@ -595,21 +617,26 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Text Left, Single.jpeg Right) -->
     <section id="about">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">THE AUTHOR</span>
                 <h2 class="section-title">About Aakash Banga</h2>
             </div>
-            <div class="glass-card">
-                <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 20px;">Aakash Banga’s <em>Masters of the Sky: Suryakiran Aerobatic Team</em> explores the people, relationships, and discipline behind one of the Indian Air Force’s most recognisable aerobatic teams. Through the world of the Suryakiran Aerobatic Team (SKAT), the book brings attention to the trust, resilience, precision, and collective commitment required to perform in an environment where every manoeuvre demands exceptional coordination.</p>
-                <p style="color: var(--text-secondary);">For Aakash, military aviation is more than a subject of professional interest. His fascination began during childhood, growing up on Air Force stations, where routine flying and Indian Air Force flypasts left a lasting impression. These early experiences developed into a deeper appreciation for the discipline, skill, and dedication of fighter pilots.</p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 20px;">Aakash Banga’s <em>Masters of the Sky: Suryakiran Aerobatic Team</em> explores the people, relationships, and discipline behind one of the Indian Air Force’s most recognisable aerobatic teams. Through the world of the Suryakiran Aerobatic Team (SKAT), the book brings attention to the trust, resilience, precision, and collective commitment required to perform in an environment where every manoeuvre demands exceptional coordination.</p>
+                    <p style="color: var(--text-secondary); font-size: 0.98rem;">For Aakash, military aviation is more than a subject of professional interest. His fascination began during childhood, growing up on Air Force stations, where routine flying and Indian Air Force flypasts left a lasting impression. These early experiences developed into a deeper appreciation for the discipline, skill, and dedication of fighter pilots.</p>
+                </div>
+                <div class="about-img-box">
+                    <img src="Single.jpeg" alt="Aakash Banga at Air Force Station">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section (Cheif.jpeg & Pic.jpeg) -->
     <section id="gallery">
         <div class="container">
             <div class="section-header">
@@ -617,13 +644,6 @@
                 <h2 class="section-title">Behind The Formations</h2>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="Single.jpeg" alt="Aakash Banga at Air Force Station">
-                    <div class="gallery-overlay">
-                        <h3>Aviation Journey</h3>
-                        <p>Exploring the historic aircraft and military installations.</p>
-                    </div>
-                </div>
                 <div class="gallery-card">
                     <img src="Cheif.jpeg" alt="Aakash Banga presenting book to Air Force Dignitary">
                     <div class="gallery-overlay">
@@ -722,7 +742,7 @@
                 <div class="media-card">
                     <div>
                         <div class="media-source">THEAKSHREVIEW</div>
-                        ### Featured Review
+                        <h3>Featured Review</h3>
                         <p>Detailed insight and analysis of the book on TheAkshReview blog.</p>
                     </div>
                     <a href="https://theakshreview.blogspot.com/2026/10/mastersofthesky.html" target="_blank" class="media-link">READ REVIEW <i class="fa-solid fa-arrow-right"></i></a>
